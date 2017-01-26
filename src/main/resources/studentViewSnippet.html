@@ -1,0 +1,53 @@
+
+<style type="text/css">
+
+    /* for a page with Breadcrumbs */
+    .swin-sv-div {
+        right: 15em;
+    }
+    .swin-sv-div:hover {
+    }
+
+    .swin-sv-button > a {
+        display: block;
+        line-height: 1;
+        overflow: hidden;
+        border: 1px solid #666;
+        border-radius: 10px;
+        padding: 5px 8px 5px 8px;
+        background-color: #777;
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+    }
+    .swin-sv-button > a:hover {    
+        background-color: #555;
+    }    
+
+
+    /* for a page without breadcrumbs */
+    .swin-sv-span {
+        background-color: paleGoldenrod;
+        font-weight: bold;
+        font-size: 1.2em;
+        padding: 3px 10px;
+        border-radius: 5px 5px 5px 5px;
+        border: 0px solid orange;
+        border-width: 1px 1px 1px 1px;
+    }
+    .swin-sv-page-top {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        margin-left: 40%;
+        margin-right: auto;
+        border-radius: 0px 0px 5px 5px;
+        border-top-width: 0px;
+    }
+
+    .swin-sv-span:hover {
+        background-color: papayawhip;
+    }
+</style>
+
+<div class='swin-sv-div modeSwitchWrap'><ul class='nav'><li class='mainButtonType swin-sv-button'><a href='${b2BaseUrl}ViewAsStudent.action?course_id=${course_id}'> ${menuItemLabel} </a></li></ul></div>

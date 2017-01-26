@@ -1,0 +1,32 @@
+
+<style type="text/css">
+    .swin-sv-span {
+        position: absolute;
+        top: 0px;
+        background-color: paleGoldenrod;
+        margin-left: 40%;
+        margin-right: auto;
+        font-weight: bold;
+        font-size: 1.2em;
+        padding: 3px 10px;
+        border-radius: 0px 0px 5px 5px;
+        border: 0px solid orange;
+        border-width: 0px 2px 2px 2px;
+    }
+</style>
+<script type='text/javascript'>
+    if (window.parent && window.parent.frames) {
+        var frameRef =  window.parent.frames['content'];
+        if (!frameRef) {
+            frameRef = window.parent.frames['contentFrame']
+        }
+        var body;
+        if (frameRef) {
+            body = frameRef.document.bodygetElementById('courseMenuPalette_contents');
+        } else {
+            body = document.body;
+        }
+        $(body).insert({"bottom":"<span class='clearfix'  class='swin-sv-span'><a href='${b2BaseUrl}ViewAsStudent.action?course_id=${course_id}'> <span>${menuItemLabel}</span> </a></span>"});
+        
+    }
+</script>

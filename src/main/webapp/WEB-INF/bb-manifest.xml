@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Author     : Wiley Fuller <wfuller@swin.edu.au>
+    Copyright Swinburne University of Technology, 2011.
+-->
+<manifest>
+    <plugin>
+        <name value="ssv.plugin.name"/>
+        <handle value="studentview"/>
+        <description value="ssv.plugin.description"/>
+        <default-locale value="en_GB" />
+        <webapp-type value="javaext" />
+        <version value="1.3.5"/>
+        <requires>
+            <bbversion value="9.1"/>
+        </requires>
+        <vendor>
+            <id value="swin"/>
+            <name value="Swinburne University of Technology"/>
+            <url value="http://www.swinburne.edu.au/"/>
+            <description value="Swinburne University of Technology"/>
+        </vendor>
+        <http-actions>
+            <config value="Config.action"/>
+        </http-actions>
+        <application-defs>
+            <application handle="student-view" type="course" use-ssl="true" name="ssv.plugin.name" can-allow-guest="false">
+                <description>Tool to Manage Users in a course</description>
+                <links>
+                    <link>
+                        <type value="course_tool" />
+                        <name value="Student View" />
+                        <url value="ViewAsStudent.action" />
+                        <description value="Tool to view a course as a student" />
+                    </link>
+                </links>
+            </application>
+        </application-defs>
+
+        <extension-defs>
+            <definition namespace="blackboard.platform">
+                <extension id="studentViewRenderingHook"
+		              point="blackboard.platform.renderingHook"
+		              class="au.edu.swinburne.bb.studentview.hooks.TeacherViewRenderingHook"
+		              singleton="true" />
+            </definition>
+        </extension-defs>
+
+
+        <permissions>
+            <!-- Stripes Permissions -->
+            <permission type="java.lang.RuntimePermission" name="accessDeclaredMembers" />
+            <permission type="java.lang.reflect.ReflectPermission" name="suppressAccessChecks" />
+
+            <!-- Other Permissions -->
+            <permission type="java.lang.RuntimePermission" name="injectRenderingHook" />
+            <permission type="java.lang.RuntimePermission" name="createClassLoader" />
+            <permission type="java.io.FilePermission" name="${java.home}/lib/*" actions="read"/>
+
+
+            <permission type="blackboard.persist.PersistPermission" name="coursemembership" actions="create,modify,delete"/>
+
+            <permission type="java.util.logging.LoggingPermission" name="control" />
+
+            <permission type="blackboard.data.AttributePermission" name="user.authinfo" actions="set,get" />
+            <permission type="blackboard.data.AttributePermission" name="user.personalinfo" actions="set,get" />
+            <permission type="blackboard.data.AttributePermission" name="user.cardnumber" actions="set,get" />
+            <permission type="blackboard.persist.PersistPermission" name="userlifecycleeventimpl" actions="create" />
+            <permission type="blackboard.persist.PersistPermission" name="userlifecycleeventpropertyimpl" actions="create" />
+            <permission type="blackboard.persist.PersistPermission" name="user" actions="create,modify" />
+        </permissions>
+    </plugin>
+</manifest>
