@@ -10,7 +10,7 @@
         <description value="ssv.plugin.description"/>
         <default-locale value="en_GB" />
         <webapp-type value="javaext" />
-        <version value="1.3.5"/>
+        <version value="1.3.6"/>
         <requires>
             <bbversion value="9.1"/>
         </requires>
@@ -51,6 +51,10 @@
             <!-- Stripes Permissions -->
             <permission type="java.lang.RuntimePermission" name="accessDeclaredMembers" />
             <permission type="java.lang.reflect.ReflectPermission" name="suppressAccessChecks" />
+
+            <!-- Logging Permissions -->
+            <permission type="java.io.FilePermission" name="BB_HOME/logs/plugins/-"
+                        actions="write"/>
 
             <!-- Other Permissions -->
             <permission type="java.lang.RuntimePermission" name="injectRenderingHook" />
